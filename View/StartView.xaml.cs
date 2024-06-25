@@ -1,5 +1,4 @@
-﻿using PrepareSubmittalTool.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace PrepareSubmittalTool.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainView.xaml
+    /// Logika interakcji dla klasy StartView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class StartView : UserControl
     {
-        public MainView()
+        public StartView()
         {
             InitializeComponent();
-            DataContext = new MainViewViewModel();
         }
     }
 }
