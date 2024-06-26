@@ -28,8 +28,8 @@ namespace PrepareSubmittalTool.ViewModel
                 }
             }
 		}
-		private int _iteration = 1;
 
+		private int iteration = 1;
 		public ICommand ShowStartView { get; set; }
 
         public MainViewViewModel()
@@ -37,13 +37,25 @@ namespace PrepareSubmittalTool.ViewModel
 			CurrentUserControll = new StartView();
 			ShowStartView = new RelayCommand(nextView);
 
+
         }
 
 		private void nextView(object parameter) 
 		{ 
-			CurrentUserControll = new InformationAboutModelView();
-		
-		}
+			if (iteration == 1)
+			{
+                CurrentUserControll = new InformationAboutModelView();
+            }
+			if(iteration == 2) 
+			{ 
+				CurrentUserControll = new ListingElementsView();
+			}
+			if(iteration == 3) 
+			{
+			
+			}
+			iteration++;
+        }
 
     }
 }

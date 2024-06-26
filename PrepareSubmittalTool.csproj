@@ -75,6 +75,9 @@
     <Compile Include="View\InformationAboutModelView.xaml.cs">
       <DependentUpon>InformationAboutModelView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ListingElementsView.xaml.cs">
+      <DependentUpon>ListingElementsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\InformationAboutModelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListingElementsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
