@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="25"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
@@ -29,22 +29,32 @@
 
             <TextBlock Text="Primaty part: "
                        />
-            <TextBlock Text="{Binding}"/>
+            <TextBlock Text="{Binding PrimaryPartNumber}"/>
         </StackPanel>
         <StackPanel Grid.Column="1"
                     Orientation="Horizontal">
 
             <TextBlock Text="Secondary part: "
                        />
-            <TextBlock Text="{Binding}"/>
+            <TextBlock Text="{Binding SecondaryPartNumber}"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1">
-            
-        </DataGrid>
-        <DataGrid Grid.Row="1"
+        <ListView ItemsSource="{Binding PrimaryPartList}"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView ItemsSource="{Binding PrimaryPartList}"
+                  Grid.Row="1"
                   Grid.Column="1">
-            
-        </DataGrid>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

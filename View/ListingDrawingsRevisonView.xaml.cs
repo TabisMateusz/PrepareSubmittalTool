@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace PrepareSubmittalTool.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy ListingElementsView.xaml
+    /// Logika interakcji dla klasy ListingDrawingsRevisonView.xaml
     /// </summary>
-    public partial class ListingElementsView : UserControl
+    public partial class ListingDrawingsRevisonView : UserControl
     {
-        public ListingElementsView()
+        public ListingDrawingsRevisonView()
         {
             InitializeComponent();
-            DataContext = new ListingElementsViewModel();
+            DataContext = new ListingDrawingsRevisionViewModel();
         }
     }
 }

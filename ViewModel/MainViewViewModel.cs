@@ -36,8 +36,6 @@ namespace PrepareSubmittalTool.ViewModel
         {
 			CurrentUserControll = new StartView();
 			ShowStartView = new RelayCommand(nextView);
-
-
         }
 
 		private void nextView(object parameter) 
@@ -49,12 +47,12 @@ namespace PrepareSubmittalTool.ViewModel
 			if(iteration == 2) 
 			{ 
 				CurrentUserControll = new ListingElementsView();
-			}
+            }
 			if(iteration == 3) 
 			{
-			
-			}
-			iteration++;
+				CurrentUserControll = new ListingDrawingsRevisonView();
+            }
+            iteration++;
         }
 
     }

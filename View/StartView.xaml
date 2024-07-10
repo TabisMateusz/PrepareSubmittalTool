@@ -11,7 +11,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Prepare your submittal quickly and       hassle-free"
+        <TextBlock Text="Prepare your submittal quickly and hassle-free"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="40"

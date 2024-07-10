@@ -68,12 +68,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DrawingAndRevisionInfo.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\InformationAboutModelViewModel.cs" />
+    <Compile Include="ViewModel\ListingDrawingsRevisionViewModel.cs" />
+    <Compile Include="ViewModel\ListingElementsViewModel.cs" />
     <Compile Include="ViewModel\MainViewViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\InformationAboutModelView.xaml.cs">
       <DependentUpon>InformationAboutModelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListingDrawingsRevisonView.xaml.cs">
+      <DependentUpon>ListingDrawingsRevisonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListingElementsView.xaml.cs">
       <DependentUpon>ListingElementsView.xaml</DependentUpon>
@@ -97,6 +103,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\InformationAboutModelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListingDrawingsRevisonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,7 +151,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Extensions\Tekla\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
