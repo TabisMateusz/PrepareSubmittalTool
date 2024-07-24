@@ -19,8 +19,8 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -30,36 +30,63 @@
                         Grid.Row="0">
                 <TextBlock Text="current model: "
                            Grid.Column="0"/>
-                <TextBlock Text="{Binding ModelName}"/>
-                
+                <TextBox Text="{Binding ModelName,Mode=TwoWay}"
+                         Height="30"
+                         Width="200"/>
             </StackPanel>
-            
-
-            <TextBlock Text="date: "
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1">
+                <TextBlock Text="date: "
                        Grid.Column="1"/>
+                <TextBox Text="{Binding CurrentDate,Mode=TwoWay}"
+                     Height="30"
+                     Width="200"/>
+           </StackPanel>
         </Grid>
-
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="submittal number: "
-                       Grid.Column="0"/>
-
-            <TextBlock Text="submittal title: "
-                       Grid.Column="1"/>
-
+            <StackPanel Orientation="Horizontal"
+                            Grid.Column="0">
+                 <TextBlock Text="submittal number: "
+                            Grid.Column="0"/>
+                 <TextBox Text="{Binding SubmittalNumber,Mode=TwoWay}"
+                          Height="30"
+                          Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1">
+                <TextBlock Text="submittal title: "
+                           Grid.Column="1"/>
+                <TextBox Text="{Binding SubmittalTitle,Mode=TwoWay}"
+                         Height="30"
+                         Width="200"/>      
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0">
+                <TextBlock Text="who prepared: "
+                           Grid.Column="0"/>
+                <TextBox Text="{Binding WhoPreparedSubmittal,Mode=TwoWay}"
+                         Height="30"
+                         Width="200"/>  
+            </StackPanel>
             <TextBlock Text="who prepared: "
                        Grid.Column="0"/>
         </Grid>
-        
+
+        <Button Grid.Row="4"
+                Content="Save elements"
+                Command="{Binding SaveElementsCommand}"
+                Height="30"
+                Width="70"/>
 
 
 

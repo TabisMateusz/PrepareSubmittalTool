@@ -1,8 +1,15 @@
-﻿using System;
+﻿using PrepareSubmittalTool.DB.Data;
+using PrepareSubmittalTool.Extensions.Tekla;
+using PrepareSubmittalTool.Model;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Tekla.Structures.Model;
+
 
 namespace PrepareSubmittalTool.ViewModel
 {
@@ -22,9 +29,9 @@ namespace PrepareSubmittalTool.ViewModel
                 }
             }
 		}
-		private int _submittalNumber;
+		private string _submittalNumber;
 
-		public int SubmittalNumber
+		public string SubmittalNumber
 		{
 			get { return _submittalNumber; }
 			set 
@@ -82,13 +89,31 @@ namespace PrepareSubmittalTool.ViewModel
             }
 		}
 
-
-
+		public ICommand SaveElementsCommand { get;set; }
 
 		public InformationAboutModelViewModel()
         {
-			ModelName = "TEST";
+			TeklaModelInfo teklaModelInfo = new TeklaModelInfo();
+			ModelName = teklaModelInfo.GetModelName();
+			CurrentDate = teklaModelInfo.Data;
+			SaveElementsCommand = new RelayCommand(saveElements);
+			SubmittalNumber = teklaModelInfo.GetSubmittalNumber();
+
         }
 
-    }
+		private void saveElements(object element)
+		{
+
+			Submittal submittal = new Submittal()
+			{ 
+				Name = SubmittalTitle,
+				Number = SubmittalNumber
+			};
+
+			SubmittalData.AddSubmittal(submittal);
+
+
+		}
+
+	}
 }
