@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace PrepareSubmittalTool.DB.Context
 {
-    public class SubmittalContext : DbContext
+    public class DataBaseContext : DbContext
     {
         public DbSet<Submittal> SUBMITTAL { get; set; }
+        public DbSet<Client> CLIENT { get; set; }
+        public DbSet<Project> PROJECT { get; set; }
 
-        private string path = "D:\\AUTOZAPIS\\PROJECTS2.db";
+        //private string path = "D:\\AUTOZAPIS\\!!!WAZNE!!!\\PROJECTS.db";
+        private string path = "D:\\AUTOZAPIS\\!!!WAZNE!!!\\PROJECTS2.db";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

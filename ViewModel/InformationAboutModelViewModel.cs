@@ -1,5 +1,5 @@
 ﻿using PrepareSubmittalTool.DB.Data;
-using PrepareSubmittalTool.Extensions.Tekla;
+using PrepareSubmittalTool.Extensions.TeklaExtensions;
 using PrepareSubmittalTool.Model;
 using System;
 using System.Collections.Generic;
@@ -93,7 +93,7 @@ namespace PrepareSubmittalTool.ViewModel
 
 		public InformationAboutModelViewModel()
         {
-			TeklaModelInfo teklaModelInfo = new TeklaModelInfo();
+            GetInfoAboutModel teklaModelInfo = new GetInfoAboutModel();
 			ModelName = teklaModelInfo.GetModelName();
 			CurrentDate = teklaModelInfo.Data;
 			SaveElementsCommand = new RelayCommand(saveElements);
@@ -111,7 +111,7 @@ namespace PrepareSubmittalTool.ViewModel
 			};
 
 			SubmittalData.AddSubmittal(submittal);
-
+						
 
 		}
 

@@ -1,4 +1,6 @@
-﻿using PrepareSubmittalTool.View;
+﻿using PrepareSubmittalTool.DB.Data;
+using PrepareSubmittalTool.Model;
+using PrepareSubmittalTool.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +52,8 @@ namespace PrepareSubmittalTool.ViewModel
             }
 			if(iteration == 3) 
 			{
-				CurrentUserControll = new ListingDrawingsRevisonView();
+                TemporaryFields.readSelectedDrawigs();
+                CurrentUserControll = new ListingDrawingsRevisonView();
             }
             iteration++;
         }

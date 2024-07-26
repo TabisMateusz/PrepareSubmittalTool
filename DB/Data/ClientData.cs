@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace PrepareSubmittalTool.DB.Data
 {
-    public static class SubmittalData
+    public static class ClientData
     {
-        public static void AddSubmittal(Submittal submittal)
+        public static void AddClient(Client client)
         {
-            using (var db = new DataBaseContext())
+            using(var db = new DataBaseContext())
             {
-                db.Add(submittal);
+                db.Add(client);
                 db.SaveChanges();
             }
         }

@@ -28,22 +28,22 @@ namespace PrepareSubmittalTool.ViewModel
             }
         }
 
-        public ICommand ReadElements {  get; set; }
-
         public ListingDrawingsRevisionViewModel()
         {
             _shopDrawingAndRevisionInfos = new ObservableCollection<DrawingAndRevisionInfo>();
-
-            ReadElements = new RelayCommand(readElement);
+                
+            ReadSelectedDrawings();
         }
 
-        private async void readElement(object obj)
+        private async void ReadSelectedDrawings()
         {
-            for (int a = 0; a <= 100; a++)
+            foreach (var element in TemporaryFields.ShopDrawingAndRevisionInfos)
             {
-                ShopDrawingAndRevisionInfos.Add(new DrawingAndRevisionInfo{ Description = "TEST", DrawingNumber="TEST", RevisionNumber="1"});
+                ShopDrawingAndRevisionInfos.Add(element);
                 await Task.Delay(10);
             }
         }
+
+        
     }
 }

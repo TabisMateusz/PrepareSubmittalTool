@@ -28,13 +28,8 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="6*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button Content="Read Elements"
-                Grid.Row="2"
-                Grid.Column="0"
-                Command="{Binding ReadElements}"/>
 
+        </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
             <TextBlock Text="Shop Drawings:"/>
