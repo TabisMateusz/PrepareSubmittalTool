@@ -33,11 +33,11 @@
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
             <TextBlock Text="Shop Drawings:"/>
-            <TextBlock Text="{Binding}"/>
+            <TextBlock Text="{Binding ShopDrawingAndRevisionListLength}"/>
         </StackPanel>
         <ListView Grid.Row="1"
                   Grid.Column="0"
-                  ItemsSource="{Binding ShopDrawingAndRevisionInfos}"
+                  ItemsSource="{Binding ShopDrawingAndRevisionList}"
                   MaxWidth="400">
             <ListView.View>
                 <GridView>
@@ -62,7 +62,7 @@
                                     Width="165">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DrawingNumber}"
+                                <TextBlock Text="{Binding Description}"
                                            FontSize="15"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -74,11 +74,11 @@
                     Grid.Column="1"
                     Orientation="Horizontal">
             <TextBlock Text="Part Drawings:"/>
-            <TextBlock Text="{Binding}"/>
+            <TextBlock Text="{Binding PartDrawingAndRevisionListLength}"/>
         </StackPanel>
         <ListView Grid.Row="1"
                   Grid.Column="1"
-                  ItemsSource="{Binding ShopDrawingAndRevisionInfos}"
+                  ItemsSource="{Binding PartDrawingAndRevisionList}"
                   MaxWidth="300">  
             <ListView.View>
                 <GridView>
@@ -103,7 +103,7 @@
                             Width="165">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DrawingNumber}"
+                                <TextBlock Text="{Binding Description}"
                                    FontSize="15"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -115,11 +115,11 @@
                     Grid.Column="2"
                     Orientation="Horizontal">
             <TextBlock Text="Erection Drawings:"/>
-            <TextBlock Text="{Binding}"/>
+            <TextBlock Text="{Binding EPlansDrawingsAndRevisionListLength}"/>
         </StackPanel>
         <ListView Grid.Row="1"
                   Grid.Column="2"
-                  ItemsSource="{Binding ShopDrawingAndRevisionInfos}"
+                  ItemsSource="{Binding EPlansDrawingAndRevisionList}"
                   MaxWidth="300">
             <ListView.View>
                 <GridView>
@@ -144,7 +144,7 @@
                                      Width="165">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DrawingNumber}"
+                                <TextBlock Text="{Binding Description}"
                                             FontSize="15"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

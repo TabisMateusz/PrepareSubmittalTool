@@ -206,8 +206,10 @@
     <Compile Include="DB\Data\SubmittalData.cs" />
     <Compile Include="Extensions\TeklaExtensions\GetInfoAboutModel.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedDrawings.cs" />
+    <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedElements.cs" />
     <Compile Include="Model\DBTables.cs" />
     <Compile Include="Model\DrawingAndRevisionInfo.cs" />
+    <Compile Include="Model\ElementInfo.cs" />
     <Compile Include="Model\TemporaryFields.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\InformationAboutModelViewModel.cs" />

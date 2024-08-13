@@ -12,6 +12,11 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,38 +26,59 @@
 
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-
+         
         <StackPanel Grid.Column="0"
                     Orientation="Horizontal">
 
             <TextBlock Text="Primaty part: "
                        />
-            <TextBlock Text="{Binding PrimaryPartNumber}"/>
+            <TextBlock Text="{Binding MainPartInfoNumber}"/>
         </StackPanel>
         <StackPanel Grid.Column="1"
                     Orientation="Horizontal">
 
             <TextBlock Text="Secondary part: "
                        />
-            <TextBlock Text="{Binding SecondaryPartNumber}"/>
+            <TextBlock Text="{Binding SecondaryPartInfoNumber}"/>
+        </StackPanel >
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBlock Text="QTY"
+                       Margin="0 0 20 0"/>
+            <TextBlock Text="PartNumber"/>
         </StackPanel>
-
-        <ListView ItemsSource="{Binding PrimaryPartList}"
-                  Grid.Row="1">
+        <ListView ItemsSource="{Binding MainPartInfo}"
+                  Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Value}"
+                               Margin="0 0 40 0"/>
+                        <Label Content="{Binding Key}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding PrimaryPartList}"
-                  Grid.Row="1"
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Text="QTY"
+               Margin="0 0 20 0"/>
+            <TextBlock Text="PartNumber"/>
+        </StackPanel>
+        <ListView ItemsSource="{Binding SecondaryPartInfo}"
+                  Grid.Row="2"
                   Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Value}"
+                               Margin="0 0 20 0"/>
+                        <Label Content="{Binding Key}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

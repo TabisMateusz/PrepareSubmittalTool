@@ -21,12 +21,6 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
     {
         public void ReadDrawings()
         {
-            var drawingsInfo = new Dictionary<string, List<DrawingAndRevisionInfo>>()
-            {
-                {"PART",new List<DrawingAndRevisionInfo>() },
-                {"SHOP", new List<DrawingAndRevisionInfo>()},
-                {"E-PLANS", new List<DrawingAndRevisionInfo>()}
-            };
             var dh = new Tekla.Structures.Drawing.DrawingHandler();
             var selector = dh.GetDrawingSelector();
             var drawingsSelector = selector.GetSelected();
@@ -37,17 +31,17 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                 if (drawingsSelector.Current is SinglePartDrawing)
                 {
                     var element = GetInfoAboutRevision(drawingsSelector.Current);
-                    drawingsInfo["PART"].Add(element);
+                    TemporaryFields.SelectedDrawingAndRevisionInfos["PART"].Add(element);
                 }
                 if (drawingsSelector.Current is AssemblyDrawing)
                 {
                     var element = GetInfoAboutRevision(drawingsSelector.Current);
-                    drawingsInfo["SHOP"].Add(element);
+                    TemporaryFields.SelectedDrawingAndRevisionInfos["SHOP"].Add(element);
                 }
                 if(drawingsSelector.Current is GADrawing) 
                 {
                     var element = GetInfoAboutRevision(drawingsSelector.Current);
-                    drawingsInfo["E-PLANS"].Add(element);
+                    TemporaryFields.SelectedDrawingAndRevisionInfos["E-PLANS"].Add(element);
                 }
             }
         }

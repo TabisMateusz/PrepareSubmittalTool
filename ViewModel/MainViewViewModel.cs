@@ -47,7 +47,8 @@ namespace PrepareSubmittalTool.ViewModel
                 CurrentUserControll = new InformationAboutModelView();
             }
 			if(iteration == 2) 
-			{ 
+			{
+				TemporaryFields.readSelectedElements();
 				CurrentUserControll = new ListingElementsView();
             }
 			if(iteration == 3) 

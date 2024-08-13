@@ -11,48 +11,90 @@ namespace PrepareSubmittalTool.ViewModel
     public class ListingElementsViewModel : BaseViewModel
     {
 
-        private int _primaryPartNumber;
+        private string _mainPartInfoNumber;
 
-        public int PrimaryPartNumber
+        public string MainPartInfoNumber
         {
-            get { return _primaryPartNumber; }
+            get { return _mainPartInfoNumber; }
             set 
             {
-                if (_primaryPartNumber != value) 
+                if (_mainPartInfoNumber != value) 
                 { 
-                    _primaryPartNumber = value;
+                    _mainPartInfoNumber = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private ObservableCollection<string> _primaryPartList;
+        private string _seconderyPartInfoNumber;
 
-		public IEnumerable<string> PrimaryPartList => _primaryPartList;
+        public string SecondaryPartInfoNumber
+        {
+            get { return _seconderyPartInfoNumber; }
+            set 
+            {
+                if( _seconderyPartInfoNumber != value) 
+                {
+                    _seconderyPartInfoNumber = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+                
+        private Dictionary<string, int> _seconderyPartInfo = new Dictionary<string, int>();
+
+        public Dictionary<string, int> SecondaryPartInfo
+        {
+            get { return _seconderyPartInfo; }
+            set
+            {
+                if (_seconderyPartInfo != value)
+                {
+                    _seconderyPartInfo = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Dictionary<string,int> _mainPartInfo = new Dictionary<string,int>();
+
+        public Dictionary<string,int> MainPartInfo
+        {
+            get { return _mainPartInfo; }
+            set 
+            { 
+                if (_mainPartInfo != value)
+                {
+                    _mainPartInfo = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public ListingElementsViewModel()
         {
-			_primaryPartList = new ObservableCollection<string>();
-
-            _primaryPartList.Add("TEST");
-            _primaryPartList.Add("TEST");
-            _primaryPartList.Add("TEST");
-            _primaryPartList.Add("TEST");
-            _primaryPartList.Add("TEST");
-
-            addingListElements();
-
+            ReadSelectedElements();
         }
 
-        private void addingListElements()
+        private void ReadSelectedElements()
         {
-            for(int a=0;a<100;a++)
-            { 
-                _primaryPartList.Add(a.ToString());
-            }
+            
+            MainPartInfo = TemporaryFields.SelectedElementsInfo
+                .Where(x => x.Key == "MAINPART")
+                .Select(x => x.Value)
+                .SelectMany(x => x)
+                .GroupBy(s => s.PartNumber)
+                .ToDictionary(g => g.Key, g => g.Count());
 
-            PrimaryPartNumber = _primaryPartList.Count;
+            SecondaryPartInfo = TemporaryFields.SelectedElementsInfo
+                .Where(x => x.Key == "SECONDARYPART")
+                .Select(x => x.Value)
+                .SelectMany(x => x)
+                .GroupBy(s => s.PartNumber)
+                .ToDictionary(g => g.Key, g => g.Count());
+
+            MainPartInfoNumber = MainPartInfo.Values.Sum().ToString();
+            SecondaryPartInfoNumber = SecondaryPartInfo.Values.Sum().ToString();
         }
-
     }
 }
