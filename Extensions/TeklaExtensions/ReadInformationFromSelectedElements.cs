@@ -32,7 +32,6 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                                 PartNumber = partNumber,
                                 MainPart = mainPart,
                                 IsNumbering = isNumber,
-                                QTY = qty.ToString()
                             });
                     }
                     else
@@ -43,7 +42,6 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                                 PartNumber = partNumber,
                                 MainPart = mainPart,
                                 IsNumbering = isNumber,
-                                QTY = qty.ToString()
                             });
                     }
                     

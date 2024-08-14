@@ -78,7 +78,6 @@ namespace PrepareSubmittalTool.ViewModel
 
         private void ReadSelectedElements()
         {
-            
             MainPartInfo = TemporaryFields.SelectedElementsInfo
                 .Where(x => x.Key == "MAINPART")
                 .Select(x => x.Value)

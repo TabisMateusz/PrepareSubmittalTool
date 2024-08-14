@@ -204,6 +204,7 @@
     <Compile Include="DB\Context\DataBaseContext.cs" />
     <Compile Include="DB\Data\ClientData.cs" />
     <Compile Include="DB\Data\SubmittalData.cs" />
+    <Compile Include="Extensions\Converters\ChangeColorIfIsNotNumberedConventer.cs" />
     <Compile Include="Extensions\TeklaExtensions\GetInfoAboutModel.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedDrawings.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedElements.cs" />

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrepareSubmittalTool.View"
+             xmlns:conv="clr-namespace:PrepareSubmittalTool.Extensions.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -17,6 +18,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <conv:ChangeColorIfIsNotNumberedConventer x:Key="ChangeColorIfIsNotNumberedConventer"/>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -32,16 +34,12 @@
          
         <StackPanel Grid.Column="0"
                     Orientation="Horizontal">
-
-            <TextBlock Text="Primaty part: "
-                       />
+            <TextBlock Text="Primaty part: "/>
             <TextBlock Text="{Binding MainPartInfoNumber}"/>
         </StackPanel>
         <StackPanel Grid.Column="1"
                     Orientation="Horizontal">
-
-            <TextBlock Text="Secondary part: "
-                       />
+            <TextBlock Text="Secondary part: "/>
             <TextBlock Text="{Binding SecondaryPartInfoNumber}"/>
         </StackPanel >
         <StackPanel Grid.Row="1"
@@ -57,7 +55,9 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{Binding Value}"
                                Margin="0 0 40 0"/>
-                        <Label Content="{Binding Key}"/>
+                        <Label Content="{Binding Key}"
+                               Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}
+                            , ConverterParameter='?'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -77,7 +77,8 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{Binding Value}"
                                Margin="0 0 20 0"/>
-                        <Label Content="{Binding Key}"/>
+                        <Label Content="{Binding Key}"
+                               Foreground="{Binding Path=Key,Converter={StaticResource TEST}, ConverterParameter='?'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
