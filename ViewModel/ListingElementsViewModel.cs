@@ -71,6 +71,22 @@ namespace PrepareSubmittalTool.ViewModel
             }
         }
 
+        private string _changeVisibility;
+
+        public string ChangerVisibility
+        {
+            get { return _changeVisibility; }
+            set 
+            {
+                if (value != _changeVisibility)
+                {
+                    _changeVisibility = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         public ListingElementsViewModel()
         {
             ReadSelectedElements();
@@ -94,6 +110,8 @@ namespace PrepareSubmittalTool.ViewModel
 
             MainPartInfoNumber = MainPartInfo.Values.Sum().ToString();
             SecondaryPartInfoNumber = SecondaryPartInfo.Values.Sum().ToString();
+
+
         }
     }
 }

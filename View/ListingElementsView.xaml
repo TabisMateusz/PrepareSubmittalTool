@@ -30,6 +30,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition Height="7*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
          
         <StackPanel Grid.Column="0"
@@ -78,10 +79,27 @@
                         <Label Content="{Binding Value}"
                                Margin="0 0 20 0"/>
                         <Label Content="{Binding Key}"
-                               Foreground="{Binding Path=Key,Converter={StaticResource TEST}, ConverterParameter='?'}"/>
+                               Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}, ConverterParameter='?'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Grid.Row="4"
+                Content="Save elements"
+                Command="{Binding SaveElementsCommand}"
+                Height="30"
+                Width="90"
+                HorizontalAlignment="Right"
+                Margin="0 0 10 0"/>
+        
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Content="Refresh list"
+                Command="{Binding SaveElementsCommand}"
+                Height="30"
+                Width="90"
+                HorizontalAlignment="Left"
+                Visibility="Hidden"
+                Margin="10 0 0 0"/>
     </Grid>
 </UserControl>
