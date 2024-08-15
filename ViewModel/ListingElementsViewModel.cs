@@ -1,10 +1,13 @@
-﻿using PrepareSubmittalTool.Model;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using PrepareSubmittalTool.Extensions.TeklaExtensions;
+using PrepareSubmittalTool.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PrepareSubmittalTool.ViewModel
 {
@@ -86,13 +89,52 @@ namespace PrepareSubmittalTool.ViewModel
             }
         }
 
+        private bool _buttonSaveEnable;
+
+        public bool ButtonSaveEnable
+        {
+            get { return _buttonSaveEnable; }
+            set 
+            {
+                if(value != _buttonSaveEnable)
+                { 
+                    _buttonSaveEnable = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _buttonRefreshEnable;
+
+        public bool ButtonRefreshEnable
+        {
+            get { return _buttonRefreshEnable; }
+            set 
+            {
+                if (_buttonRefreshEnable != value)
+                {
+                    _buttonRefreshEnable = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ICommand RefreshElementListCommand { get;set; }
 
         public ListingElementsViewModel()
         {
-            ReadSelectedElements();
+            WriteSelectedElements();
+            RefreshElementListCommand = new RelayCommand(refreshElementList);
         }
 
-        private void ReadSelectedElements()
+        private void refreshElementList(object obj)
+        {
+            ReadInformationFromSelectedElements readInformation = new ReadInformationFromSelectedElements();
+            readInformation.ReadSelectedElements();
+            WriteSelectedElements();
+        }
+
+        private void WriteSelectedElements()
         {
             MainPartInfo = TemporaryFields.SelectedElementsInfo
                 .Where(x => x.Key == "MAINPART")
@@ -111,7 +153,10 @@ namespace PrepareSubmittalTool.ViewModel
             MainPartInfoNumber = MainPartInfo.Values.Sum().ToString();
             SecondaryPartInfoNumber = SecondaryPartInfo.Values.Sum().ToString();
 
+            var AnyIsNotNumbered = TemporaryFields.SelectedElementsInfo.SelectMany(x => x.Value).Select(x=>x.IsNumbering).Any(x=>x == false);
 
+            ButtonSaveEnable = AnyIsNotNumbered ? false : true;
+            ButtonRefreshEnable = AnyIsNotNumbered ? true : false;
         }
     }
 }

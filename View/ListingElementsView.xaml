@@ -90,16 +90,17 @@
                 Height="30"
                 Width="90"
                 HorizontalAlignment="Right"
-                Margin="0 0 10 0"/>
+                Margin="0 0 10 0"
+                IsEnabled="{Binding ButtonSaveEnable}"/>
         
         <Button Grid.Row="4"
                 Grid.Column="1"
                 Content="Refresh list"
-                Command="{Binding SaveElementsCommand}"
+                Command="{Binding RefreshElementListCommand}"
                 Height="30"
                 Width="90"
                 HorizontalAlignment="Left"
-                Visibility="Hidden"
-                Margin="10 0 0 0"/>
+                Margin="10 0 0 0"
+                IsEnabled="{Binding ButtonRefreshEnable}"/>
     </Grid>
 </UserControl>

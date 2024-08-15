@@ -12,6 +12,8 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
         public void ReadSelectedElements()
         {
             Tekla.Structures.Model.ModelObjectEnumerator moe = new Tekla.Structures.Model.UI.ModelObjectSelector().GetSelectedObjects();
+            TemporaryFields.SelectedElementsInfo["MAINPART"].Clear();
+            TemporaryFields.SelectedElementsInfo["SECONDARYPART"].Clear();
 
             while (moe.MoveNext()) 
             { 
