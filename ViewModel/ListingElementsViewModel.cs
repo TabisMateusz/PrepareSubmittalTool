@@ -129,6 +129,7 @@ namespace PrepareSubmittalTool.ViewModel
 
         private void refreshElementList(object obj)
         {
+            
             ReadInformationFromSelectedElements readInformation = new ReadInformationFromSelectedElements();
             readInformation.ReadSelectedElements();
             WriteSelectedElements();

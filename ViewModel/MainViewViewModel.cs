@@ -56,6 +56,10 @@ namespace PrepareSubmittalTool.ViewModel
                 TemporaryFields.readSelectedDrawigs();
                 CurrentUserControll = new ListingDrawingsRevisonView();
             }
+			if(iteration == 4) 
+			{
+                return;
+            }
             iteration++;
         }
 
