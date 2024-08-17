@@ -31,6 +31,22 @@ namespace PrepareSubmittalTool.ViewModel
             }
 		}
 
+		private string _buttonVisibility;
+
+		public string ButtonVisibility
+        {
+			get { return _buttonVisibility; }
+			set 
+			{ 
+				if( _buttonVisibility != value) 
+				{ 
+					_buttonVisibility = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+
 		private int iteration = 1;
 		public ICommand ShowStartView { get; set; }
 
@@ -38,6 +54,7 @@ namespace PrepareSubmittalTool.ViewModel
         {
 			CurrentUserControll = new StartView();
 			ShowStartView = new RelayCommand(nextView);
+			ButtonVisibility = "Visible";
         }
 
 		private void nextView(object parameter) 
@@ -45,23 +62,26 @@ namespace PrepareSubmittalTool.ViewModel
 			if (iteration == 1)
 			{
                 CurrentUserControll = new InformationAboutModelView();
+
             }
-			if(iteration == 2) 
+            if (iteration == 2) 
 			{
-				TemporaryFields.readSelectedElements();
+                TemporaryFields.readSelectedElements();
 				CurrentUserControll = new ListingElementsView();
+
             }
-			if(iteration == 3) 
+            if (iteration == 3) 
 			{
                 TemporaryFields.readSelectedDrawigs();
                 CurrentUserControll = new ListingDrawingsRevisonView();
             }
 			if(iteration == 4) 
 			{
-                return;
+				ButtonVisibility = "Hidden";
+                CurrentUserControll = new SummaryView();
             }
             iteration++;
-        }
 
+        }
     }
 }

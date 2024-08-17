@@ -20,6 +20,7 @@
                     Height="40"
                     Width="150"
                     Grid.Row="1"
+                    Visibility="{Binding ButtonVisibility}"
                     Command="{Binding ShowStartView}"/> 
         </StackPanel>
         

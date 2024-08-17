@@ -1,9 +1,5 @@
 ﻿using PrepareSubmittalTool.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Tekla.Structures.Model;
 
 namespace PrepareSubmittalTool.Extensions.TeklaExtensions
 {
@@ -15,13 +11,13 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
             TemporaryFields.SelectedElementsInfo["MAINPART"].Clear();
             TemporaryFields.SelectedElementsInfo["SECONDARYPART"].Clear();
 
+            
             while (moe.MoveNext()) 
             { 
                 if (moe.Current is Tekla.Structures.Model.Part myPart)
                 {
                     string partNumber = string.Empty;
                     int mainPart = 0;
-                    int qty = 1;
                     myPart.GetReportProperty("MAIN_PART", ref mainPart);
                     myPart.GetReportProperty("PART_POS", ref partNumber);
                     bool isNumber = Tekla.Structures.Model.Operations.Operation.IsNumberingUpToDate(myPart);

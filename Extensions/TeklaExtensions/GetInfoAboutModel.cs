@@ -19,15 +19,13 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
             return currentModel.GetInfo().ModelName.Replace(".db1", "");
         }
 
-        public string GetSubmittalNumber()
-        {
-            int submittalNumber = 0;
-            string companyName = string.Empty;
-            ProjectInfo projectInfo = currentModel.GetProjectInfo();
-            projectInfo.GetUserProperty("TR_COMPANY", ref companyName);
+        //public string GetSubmittalName()
+        //{
+        //    string companyName = string.Empty;
+        //    ProjectInfo projectInfo = currentModel.GetProjectInfo();
+        //    projectInfo.GetUserProperty("TR_COMPANY", ref companyName);
 
-
-            return submittalNumber.ToString();
-        }
+        //    return submittalNumber.ToString();
+        //}
     }
 }

@@ -203,7 +203,9 @@
     </ApplicationDefinition>
     <Compile Include="DB\Context\DataBaseContext.cs" />
     <Compile Include="DB\Data\ClientData.cs" />
+    <Compile Include="DB\Data\ProjectData.cs" />
     <Compile Include="DB\Data\SubmittalData.cs" />
+    <Compile Include="DB\Data\SubmittalInfoData.cs" />
     <Compile Include="Extensions\Converters\ChangeColorIfIsNotNumberedConventer.cs" />
     <Compile Include="Extensions\TeklaExtensions\GetInfoAboutModel.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedDrawings.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="ViewModel\ListingElementsViewModel.cs" />
     <Compile Include="ViewModel\MainViewViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\SummaryViewModel.cs" />
     <Compile Include="View\InformationAboutModelView.xaml.cs">
       <DependentUpon>InformationAboutModelView.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,9 @@
     </Compile>
     <Compile Include="View\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SummaryView.xaml.cs">
+      <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -262,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

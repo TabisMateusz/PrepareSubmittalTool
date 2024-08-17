@@ -18,5 +18,13 @@ namespace PrepareSubmittalTool.DB.Data
                 db.SaveChanges();
             }
         }
+
+        public static bool ClientExist(string clientName)
+        {
+            using (var db = new DataBaseContext())
+            {
+                return db.CLIENTS.Any(x => x.Client_name == clientName);
+            }
+        }
     }
 }

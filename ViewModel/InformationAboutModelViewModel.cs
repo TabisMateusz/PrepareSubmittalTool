@@ -15,23 +15,24 @@ namespace PrepareSubmittalTool.ViewModel
 {
     public class InformationAboutModelViewModel : BaseViewModel
     {
-		private string _modelName;
+        #region Properties
+        private string _projectName;
 
-		public string ModelName
+		public string ProjectName
 		{
-			get {  return _modelName; }
+			get {  return _projectName; }
 			set 
 			{ 
-				if(_modelName != value) 
+				if(_projectName != value) 
 				{
-					_modelName = value;
+					_projectName = value;
 					OnPropertyChanged();
                 }
             }
 		}
-		private string _submittalNumber;
+		private int _submittalNumber;
 
-		public string SubmittalNumber
+		public int SubmittalNumber
 		{
 			get { return _submittalNumber; }
 			set 
@@ -91,27 +92,46 @@ namespace PrepareSubmittalTool.ViewModel
 
 		public ICommand SaveElementsCommand { get;set; }
 
-		public InformationAboutModelViewModel()
+        #endregion
+
+        public InformationAboutModelViewModel()
         {
             GetInfoAboutModel teklaModelInfo = new GetInfoAboutModel();
-			ModelName = teklaModelInfo.GetModelName();
+			ProjectName = teklaModelInfo.GetModelName();
 			CurrentDate = teklaModelInfo.Data;
-			SaveElementsCommand = new RelayCommand(saveElements);
-			SubmittalNumber = teklaModelInfo.GetSubmittalNumber();
-
+			SaveElementsCommand = new RelayCommand(saveSubmittalInfo);
+			getSubmittalNumber();
+			saveSubmittal();
+			//var existing = ClientData.ClientExist(_modelName);
         }
 
-		private void saveElements(object element)
+		private void saveSubmittal()
 		{
+			SubmittalData.AddSubmittal(new Submittal()
+			{
+				Submittal_Number = SubmittalNumber,
+				Project_ID = ProjectData.GetProjectId(_projectName)
+			});
+		}
+		private void getSubmittalNumber()
+		{
+            var ifAnySubmittal = SubmittalData.AnySubmittalForProject(_projectName);
+            if (!ifAnySubmittal)
+                SubmittalNumber = 1;
+            else
+                SubmittalNumber = SubmittalData.GetLastSubmittalNumber(_projectName) + 1;
+        }
 
-			Submittal submittal = new Submittal()
-			{ 
-				Name = SubmittalTitle,
-				Number = SubmittalNumber
-			};
+		private void saveSubmittalInfo(object element)
+		{
+			SubmittalInfoData.AddSubmittalInfo(new SubmittalInfo
+			{
+				Who_Prepared = WhoPreparedSubmittal,
+				Date = CurrentDate,
+				Filter = "#00" + SubmittalNumber.ToString(),
+				Submittal_Title = SubmittalTitle,
 
-			SubmittalData.AddSubmittal(submittal);
-						
+			});
 
 		}
 

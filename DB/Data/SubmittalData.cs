@@ -12,10 +12,35 @@ namespace PrepareSubmittalTool.DB.Data
     {
         public static void AddSubmittal(Submittal submittal)
         {
-            using (var db = new DataBaseContext())
+            using (var context = new DataBaseContext())
             {
-                db.Add(submittal);
-                db.SaveChanges();
+                context.Add(submittal);
+                context.SaveChanges();
+            }
+        }
+
+        public static bool AnySubmittalForProject(string projectName)
+        {
+
+            int projectId = ProjectData.GetProjectId(projectName);
+
+            using (var context = new DataBaseContext())
+            {
+                return context.SUBMITTAL.Any(x => x.Project_ID == projectId);
+            }
+        }
+
+        public static int GetLastSubmittalNumber(string projectName) 
+        { 
+            int projectId = ProjectData.GetProjectId(projectName);
+
+            using (var context = new DataBaseContext())
+            {
+                return context.SUBMITTAL
+                    .Where(x => x.Project_ID == projectId)
+                    .OrderByDescending(x=>x.Submittal_ID)
+                    .Select(x=>x.Submittal_Number)
+                    .FirstOrDefault();
             }
         }
     }
