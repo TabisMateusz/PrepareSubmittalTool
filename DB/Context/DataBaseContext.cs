@@ -13,6 +13,8 @@ namespace PrepareSubmittalTool.DB.Context
         public DbSet<Submittal> SUBMITTAL { get; set; }
         public DbSet<Client> CLIENTS { get; set; }
         public DbSet<Project> PROJECT { get; set; }
+        public DbSet<SubmittalInfo> SUBMITTAL_INFO { get; set; }
+
 
         private string path = "C:\\Users\\matau\\OneDrive\\Pulpit\\projekt\\PROJECTS.db";
 

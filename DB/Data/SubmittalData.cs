@@ -43,5 +43,19 @@ namespace PrepareSubmittalTool.DB.Data
                     .FirstOrDefault();
             }
         }
+        public static int GetLastSubmittalId(string projectName)
+        {
+            int projectId = ProjectData.GetProjectId(projectName);
+
+            using (var context = new DataBaseContext())
+            {
+                return context.SUBMITTAL
+                    .Where(x => x.Project_ID == projectId)
+                    .OrderByDescending(x => x.Submittal_ID)
+                    .Select(x => x.Submittal_ID)
+                    .FirstOrDefault();
+            }
+
+        }
     }
 }

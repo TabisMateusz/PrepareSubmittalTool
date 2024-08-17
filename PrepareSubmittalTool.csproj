@@ -210,6 +210,11 @@
     <Compile Include="Extensions\TeklaExtensions\GetInfoAboutModel.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedDrawings.cs" />
     <Compile Include="Extensions\TeklaExtensions\ReadInformationFromSelectedElements.cs" />
+    <Compile Include="Migrations\20240817231132_FixSubmittalInfoMapping.cs" />
+    <Compile Include="Migrations\20240817231132_FixSubmittalInfoMapping.Designer.cs">
+      <DependentUpon>20240817231132_FixSubmittalInfoMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DataBaseContextModelSnapshot.cs" />
     <Compile Include="Model\DBTables.cs" />
     <Compile Include="Model\DrawingAndRevisionInfo.cs" />
     <Compile Include="Model\ElementInfo.cs" />

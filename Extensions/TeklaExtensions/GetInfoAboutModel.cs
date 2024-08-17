@@ -13,7 +13,6 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
     {
         private readonly Tekla.Structures.Model.Model currentModel = new Tekla.Structures.Model.Model();
 
-        public readonly string Data = DateTime.Now.ToString("MMM_dd_yy", (IFormatProvider)new CultureInfo("en-us")).ToUpper();
         public string GetModelName()
         {
             return currentModel.GetInfo().ModelName.Replace(".db1", "");

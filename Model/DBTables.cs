@@ -16,9 +16,10 @@ namespace PrepareSubmittalTool.Model
 
         public int Submittal_Number { get; set; }
 
-        [ForeignKey("PROJECTS")]
         public int Project_ID { get; set; }
+        public ICollection<SubmittalInfo> SubmittalInfos { get; set; }
 
+        [ForeignKey("Project_ID")]
         public Project Project { get; set; }
     }
 
@@ -38,9 +39,10 @@ namespace PrepareSubmittalTool.Model
         public int Project_ID { get; set; }
         public string Project_Name { get; set; }
         public int Client_ID { get; set; }
+
+        [ForeignKey("Client_ID")]
         public Client Client { get; set; }
         public ICollection<Submittal> Submittals { get; set; }
-
     }
 
     [Table("SUBMITTAL_INFO")]
@@ -53,6 +55,8 @@ namespace PrepareSubmittalTool.Model
         public string Date {  get; set; }
         public string Filter { get; set; }
         public string Submittal_Title { get; set; }
+
+        [ForeignKey("Submittal_ID")]
         public Submittal Submittal { get; set; }
 
     }

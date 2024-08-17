@@ -98,12 +98,13 @@ namespace PrepareSubmittalTool.ViewModel
         {
             GetInfoAboutModel teklaModelInfo = new GetInfoAboutModel();
 			ProjectName = teklaModelInfo.GetModelName();
-			CurrentDate = teklaModelInfo.Data;
-			SaveElementsCommand = new RelayCommand(saveSubmittalInfo);
+			CurrentDate = DateTime.Now.ToString("MMM_dd_yy", (IFormatProvider)new CultureInfo("en-us")).ToUpper().ToString();
+
+		    SaveElementsCommand = new RelayCommand(saveSubmittalInfo);
 			getSubmittalNumber();
 			saveSubmittal();
 			//var existing = ClientData.ClientExist(_modelName);
-        }
+		}
 
 		private void saveSubmittal()
 		{
@@ -130,7 +131,7 @@ namespace PrepareSubmittalTool.ViewModel
 				Date = CurrentDate,
 				Filter = "#00" + SubmittalNumber.ToString(),
 				Submittal_Title = SubmittalTitle,
-
+				Submittal_ID = SubmittalData.GetLastSubmittalId(_projectName)
 			});
 
 		}

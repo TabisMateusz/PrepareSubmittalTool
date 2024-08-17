@@ -30,7 +30,7 @@
                         Grid.Row="0">
                 <TextBlock Text="current model: "
                            Grid.Column="0"/>
-                <TextBox Text="{Binding ModelName,Mode=TwoWay}"
+                <TextBox Text="{Binding ProjectName,Mode=TwoWay}"
                          Height="30"
                          Width="200"/>
             </StackPanel>
