@@ -18,8 +18,10 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                 {
                     string partNumber = string.Empty;
                     int mainPart = 0;
+                    int phase = 0;
                     myPart.GetReportProperty("MAIN_PART", ref mainPart);
                     myPart.GetReportProperty("PART_POS", ref partNumber);
+                    myPart.GetReportProperty("PHASE", ref phase);
                     bool isNumber = Tekla.Structures.Model.Operations.Operation.IsNumberingUpToDate(myPart);
 
                     if (mainPart == 1)
@@ -30,6 +32,7 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                                 PartNumber = partNumber,
                                 MainPart = mainPart,
                                 IsNumbering = isNumber,
+                                Phase = phase
                             });
                     }
                     else
@@ -40,6 +43,7 @@ namespace PrepareSubmittalTool.Extensions.TeklaExtensions
                                 PartNumber = partNumber,
                                 MainPart = mainPart,
                                 IsNumbering = isNumber,
+                                Phase = phase
                             });
                     }
                     

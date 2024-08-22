@@ -11,5 +11,6 @@ namespace PrepareSubmittalTool.Model
         public string PartNumber { get; set; }
         public int MainPart { get; set; }
         public bool IsNumbering { get; set; }
+        public int Phase { get; set; }
     }
 }

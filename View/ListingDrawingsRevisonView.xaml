@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrepareSubmittalTool.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="900">
+             d:DesignHeight="450" d:DesignWidth="1000">
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="Counting">
             <Setter Property="FontSize" Value="25"/>
@@ -17,11 +17,12 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
-        <Style TargetType="GridViewColumnHeader">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Style TargetType="TextBlock" x:Key="Column">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="IsHitTestVisible" Value="False"/>
         </Style>
+        
         
     </UserControl.Resources>
     <Grid>
@@ -75,36 +76,14 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding DrawingNumber}"
-                                       Style="{StaticResource Listing}"
+                                       Style="{StaticResource Column}"
                                        Grid.Column="0"/>
                             <TextBlock Text="{Binding RevisionNumber}"
-                                       Style="{StaticResource Listing}"
+                                       Style="{StaticResource Column}"
                                        Grid.Column="1"/>
                             <TextBlock Text="{Binding Description}"
-                                       Style="{StaticResource Listing}"
-                                       Grid.Column="1"/>
-                            <!--<ContentControl Grid.Column="2">
-                                <ContentControl.Style>
-                                    <Style TargetType="ContentControl">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListViewItem}}" Value="True">
-                                                <Setter Property="Content">
-                                                    <Setter.Value>
-                                                        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListViewItem}}" Value="False">
-                                                <Setter Property="Content">
-                                                    <Setter.Value>
-                                                        <TextBlock Text="{Binding Description}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ContentControl.Style>
-                            </ContentControl>-->
+                                       Style="{StaticResource Column}"
+                                       Grid.Column="2"/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
@@ -137,7 +116,7 @@
                    Grid.Column="2"/>
             </Grid>
         </StackPanel>
-        <ListView ItemsSource="{Binding ShopDrawingAndRevisionList}"
+        <ListView ItemsSource="{Binding PartDrawingAndRevisionList}"
           Grid.Row="2"
           Grid.Column="1">
             <ListView.ItemTemplate>
@@ -150,12 +129,13 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding DrawingNumber}"
-                               Style="{StaticResource Listing}"
+                               Style="{StaticResource Column}"
                                Grid.Column="0"/>
                             <TextBlock Text="{Binding RevisionNumber}"
-                               Style="{StaticResource Listing}"
+                               Style="{StaticResource Column}"
                                Grid.Column="1"/>
                             <TextBlock Text="{Binding Description}"
+                                       Style="{StaticResource Column}"
                                Grid.Column="2"/>
                         </Grid>
                     </StackPanel>
@@ -189,7 +169,7 @@
                    Grid.Column="2"/>
             </Grid>
         </StackPanel>
-        <ListView ItemsSource="{Binding ShopDrawingAndRevisionList}"
+        <ListView ItemsSource="{Binding EPlansDrawingAndRevisionList}"
           Grid.Row="2"
           Grid.Column="2">
             <ListView.ItemTemplate>
@@ -202,13 +182,13 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding DrawingNumber}"
-                               Style="{StaticResource Listing}"
+                               Style="{StaticResource Column}"
                                Grid.Column="0"/>
                             <TextBlock Text="{Binding RevisionNumber}"
-                               Style="{StaticResource Listing}"
+                               Style="{StaticResource Column}"
                                Grid.Column="1"/>
                             <TextBlock Text="{Binding Description}"
-                               Style="{StaticResource Listing}"
+                               Style="{StaticResource Column}"
                                Grid.Column="2"/>
                         </Grid>
                     </StackPanel>

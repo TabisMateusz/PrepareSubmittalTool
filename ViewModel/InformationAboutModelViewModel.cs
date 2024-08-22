@@ -101,8 +101,8 @@ namespace PrepareSubmittalTool.ViewModel
 			CurrentDate = DateTime.Now.ToString("MMM_dd_yy", (IFormatProvider)new CultureInfo("en-us")).ToUpper().ToString();
 
 		    SaveElementsCommand = new RelayCommand(saveSubmittalInfo);
-			getSubmittalNumber();
-			saveSubmittal();
+			//getSubmittalNumber();
+			//saveSubmittal();
 			//var existing = ClientData.ClientExist(_modelName);
 		}
 

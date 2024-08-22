@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PrepareSubmittalTool.View"
              xmlns:conv="clr-namespace:PrepareSubmittalTool.Extensions.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1000">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
@@ -45,30 +45,52 @@
         </StackPanel >
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal">
-            <TextBlock Text="QTY"
-                       Margin="0 0 20 0"/>
-            <TextBlock Text="PartNumber"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="QTY"
+                           Grid.Column="0"/>
+                <TextBlock Text="PartNumber"
+                           Grid.Column="1"/>
+            </Grid>
         </StackPanel>
         <ListView ItemsSource="{Binding MainPartInfo}"
                   Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Value}"
-                               Margin="0 0 40 0"/>
-                        <Label Content="{Binding Key}"
-                               Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}
-                            , ConverterParameter='?'}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Value}"
+                                    Grid.Column="0"
+                                   HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Key}"
+                                   Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}
+                                  ,ConverterParameter='?'}"
+                                   Grid.Column="1"/>
+                        </Grid>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="1"
                     Grid.Column="1"
-            Orientation="Horizontal">
-            <TextBlock Text="QTY"
-               Margin="0 0 20 0"/>
-            <TextBlock Text="PartNumber"/>
+                    Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="QTY"
+                           Grid.Column="0"/>
+                <TextBlock Text="PartNumber"
+                           Grid.Column="1"/>
+            </Grid>
         </StackPanel>
         <ListView ItemsSource="{Binding SecondaryPartInfo}"
                   Grid.Row="2"
@@ -76,10 +98,18 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Value}"
-                               Margin="0 0 20 0"/>
-                        <Label Content="{Binding Key}"
-                               Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}, ConverterParameter='?'}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Value}"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Key}"
+                                   Foreground="{Binding Path=Key,Converter={StaticResource ChangeColorIfIsNotNumberedConventer}, ConverterParameter='?'}"
+                                   Grid.Column="1"/>
+                        </Grid>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
